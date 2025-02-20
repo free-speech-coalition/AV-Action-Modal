@@ -11,9 +11,7 @@ A modal window that pops up if it detects that a user is located in a state with
 
 ## How It Works (Non-Technical)
 
-When a user visits your website, the script checks to see whether they have a cookie indicating that they have already seen the pop up.
-
-If they do not have the cookie, it determines their IP address, checks to see whether they are located in a state with a pending age-verification bill, and if they are, displays a pop up window asking them to oppose the bill:
+When a user visits your website, the script checks to see whether they have a cookie indicating that they have already seen the pop up. If not, it checks whether they are  in a state with a pending age-verification bill. If they are, it displays a pop up window asking them to oppose the bill:
 
 ![Screenshot of the AV Action Modal on a dark website.](https://assets.freespeechcoalition.com/code/modalDark.png)
 
