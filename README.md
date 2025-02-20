@@ -9,6 +9,7 @@ A modal window that pops up if it detects that a user is located in a state with
 
 2. Paste it before the `</body>` tag of your website's code.
 
+
 ## How It Works (Non-Technical)
 
 When a user visits your website, the script checks to see whether they have a cookie indicating that they have already seen the pop up. If not, it checks whether they are  in a state with a pending age-verification bill. If they are, it displays a pop up window asking them to oppose the bill:
@@ -19,9 +20,11 @@ Any links clicked will open in a new window/tab. Clicking anywhere on the page (
 
 Whether or not the user clicks the links, the cookie is set, ensuring that they do not see the message again.
 
+
+
 ## FAQs
 ### Why did FSC create this?
-Politicians' number one priority is reelection, so they care far more about what the voters in their district think than what the porn industry thinks. We were able to defeat Arizona's law in 2024 by mobilizing constituents to pressure the governor into vetoing a bill that the legislature had passed.  
+Politicians' number one priority is reelection, so they care far more about what the voters in their district think than what the porn industry thinks. We were able to defeat Arizona's law in 2024 by mobilizing constituents to pressure the governor into vetoing a bill that the legislature had passed. We think we can do it again this year in more states.
 
 ### Which states will see the pop up?
 Arizona, Hawaii, Illinois, Iowa, Maryland, Missouri, New Mexico, New York, North Dakota, Ohio, Oregon, South Dakota, West Virginia, and Wyoming.
