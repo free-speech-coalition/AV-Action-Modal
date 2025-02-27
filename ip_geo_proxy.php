@@ -5,6 +5,7 @@ $ERROR_INVALID_IP = '`ip_address` is invalid';
 $ERROR_MISSING_API_KEY = '`API_KEY` is required';
 $ERROR_MISSING_IP = '`ip_address` is required';
 $API_KEY_NAME = "IP_GEO_KEY";
+$API_KEY = get_api_key();
 
 function get_api_key() {
     global $API_KEY_NAME;
@@ -57,7 +58,6 @@ function get_geolocation($api_key, $ip, $lang = "en", $fields = "state_prov") {
     }
 }
 
-$API_KEY = get_api_key();
 $remote_ip = $_GET['ip_address'] ?? false;
 
 if (!$remote_ip) {
@@ -78,6 +78,6 @@ if (filter_var($remote_ip, FILTER_VALIDATE_IP) == false) {
     return;
 }
 
-$location = get_geolocation($API_KEY, $remote_ip);
-echo $location;
+$json_response = get_geolocation($API_KEY, $remote_ip);
+echo $json_response;
 ?>

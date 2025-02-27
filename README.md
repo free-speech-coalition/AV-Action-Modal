@@ -73,7 +73,6 @@ curl https://api.freespeechcoalition.com/<path>/geoip/?ip_address=84.17.41.190
 #### `ip_address` parameter is missing
 If the incoming request is missing the `ip_address` query parameter, the proxy API will respond with an `http status code` of `400` with a `JSON` body of:
 ```json
-// HTTP STATUS CODE: 400
 {
     "error_code": 4001,
     "error_message": "`ip_address` is required"
@@ -83,7 +82,6 @@ If the incoming request is missing the `ip_address` query parameter, the proxy A
 #### `ip_address` parameter is invalid
 If the incoming request contains an `ip_address` query parameter but the value is not a valid IP (as defined by the internal [FILTER_VALIDATE_IP](https://www.php.net/manual/en/filter.constants.php#constant.filter-validate-ip) constant), the proxy API will respond with an `http status code` of `400` with a `JSON` body of:
 ```json
-// HTTP STATUS CODE: 400
 {
     "error_code": 4002,
     "error_message": "`ip_address` is invalid"
@@ -93,7 +91,6 @@ If the incoming request contains an `ip_address` query parameter but the value i
 #### Server Side Exception
 In the event the proxy encounters an issue, the proxy API will respond with an `http status code` of `500` with a `JSON` body of:
 ```json
-// HTTP STATUS CODE: 500
 {
     "error_code": 5001,
     "error_message": "<Exception message>"
