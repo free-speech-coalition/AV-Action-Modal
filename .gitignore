@@ -1,0 +1,5 @@
+# Configuration files
+.env
+
+# Junk
+.DS_Store
