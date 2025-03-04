@@ -4,8 +4,7 @@ A modal window that pops up if it detects that a user is located in a state with
 
 ## How To Add It To Your Site
 
-1. Copy this:  
-`<script src="https://assets.freespeechcoalition.com/code/avActionModal.min.js"></script>`
+1. Copy this: `<script src="https://assets.freespeechcoalition.com/code/avActionModal.min.js"></script>`
 
 2. Paste it before the `</body>` tag of your website's code.
 
@@ -19,7 +18,6 @@ When a user visits your website, the script checks to see whether they have a co
 Any links clicked will open in a new window/tab. Clicking anywhere on the page (including the links) will close the pop up.
 
 Whether or not the user clicks the links, the cookie is set, ensuring that they do not see the message again.
-
 
 
 ## FAQs

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const avOpenBtn = document.getElementById("openModal");
     const avStyles = {
         background: "#10202b",
         text: "#fff",
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         "Oregon": { "billLink": "https://www.defendonlineprivacy.com/or/action.php" },
         "South Dakota": { "billLink": "https://www.defendonlineprivacy.com/sd/action.php" },
         "West Virginia": { "billLink": "https://www.defendonlineprivacy.com/wv/action.php" },
-        "Wyoming": { "billLink": "https://www.defendonlineprivacy.com/wy/action.php" }
+        "Wyoming": { "billLink": "https://www.defendonlineprivacy.com/wy/action.php" },
     };
 
 
@@ -47,13 +46,19 @@ document.addEventListener("DOMContentLoaded", async function () {
             const result = await response.text();
             return result;
         } catch (e) {
-            return null;
+            // don't bother reporting an error if we can't get the user's IP
         }
+        return null;
     }
 
     // Function to fetch user's location
     async function getAVModalLocation() {
         const avModalIPAddress = await getAVUserIP();
+        // If we can't get the user's IP address, don't report an error
+        // and just return false
+        if (!avModalIPAddress) {
+            return false;
+        }
         const requestOptions = {
             method: "GET",
             redirect: "follow"
@@ -68,17 +73,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                     billLink: avStates[result.state_prov]["billLink"]
                 };
                 return avUserLocation;
-            } else {
-                return false;
             }
         } catch (e) {
-            return false;
+            // If we can't get the user's location, don't report an error
+            // and just return false
         }
+        return false;
     }
 
     // Build modal
     function buildAVModal(avLocation) {
-        if (!avLocation) { return; }
+        if (!avLocation) {
+            return;
+        }
         const avModal = document.createElement("div");
         avModal.id = 'AVmodal';
         avModal.style.cssText = "display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); font-family: Arial, sans-serif; font-size: 22px; line-height: 24px;";
@@ -128,5 +135,4 @@ document.addEventListener("DOMContentLoaded", async function () {
         buildAVModal(avModalLocation);
         setAVCookie("av-modal", "true", 7); // Cookie expires in 7 days
     }
-
 });
