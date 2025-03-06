@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
 
 $ERROR_INVALID_IP = '`ip_address` is invalid';
 $ERROR_MISSING_API_KEY = '`API_KEY` is required';
