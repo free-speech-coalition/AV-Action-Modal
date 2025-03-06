@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
 
 $ERROR_INVALID_IP = '`ip_address` is invalid';
 $ERROR_MISSING_API_KEY = '`API_KEY` is required';
@@ -58,7 +59,15 @@ function get_geolocation($api_key, $ip, $lang = "en", $fields = "state_prov") {
     }
 }
 
-$remote_ip = $_GET['ip_address'] ?? false;
+$remote_ip = false;
+
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $remote_ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $remote_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $remote_ip = $_SERVER['REMOTE_ADDR'];
+}
 
 if (!$remote_ip) {
     http_response_code(400);

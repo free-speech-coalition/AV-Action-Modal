@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         "Illinois": { "billLink": "https://www.defendonlineprivacy.com/il/action.php" },
         "Iowa": { "billLink": "https://www.defendonlineprivacy.com/ia/action.php" },
         "Maryland": { "billLink": "https://www.defendonlineprivacy.com/md/action.php" },
+        "Minnesota": { "billLink": "https://www.defendonlineprivacy.com/mn/action.php" },
         "Missouri": { "billLink": "https://www.defendonlineprivacy.com/mo/action.php" },
+        "Nevada": { "billLink": "https://www.defendonlineprivacy.com/nv/action.php" },
         "New Mexico": { "billLink": "https://www.defendonlineprivacy.com/nm/action.php" },
         "New York": { "billLink": "https://www.defendonlineprivacy.com/ny/action.php" },
         "North Dakota": { "billLink": "https://www.defendonlineprivacy.com/nd/action.php" },
@@ -41,26 +43,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.cookie = `${name}=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
     }
 
-    async function getAVUserIP() {
-        try {
-            const response = await fetch("https://api64.ipify.org");
-            const result = await response.text();
-            return result;
-        } catch (e) {
-            return null;
-        }
-    }
-
     // Function to fetch user's location
     async function getAVModalLocation() {
-        const avModalIPAddress = await getAVUserIP();
         const requestOptions = {
             method: "GET",
             redirect: "follow"
         };
-
         try {
-            const response = await fetch("https://api.ipgeolocation.io/ipgeo?apiKey=efaebf5eeae541019722aba565851296&fields=state_prov&ip=" + avModalIPAddress, requestOptions);
+            const response = await fetch("https://api.freespeechcoalition.com/ip_geo_proxy.php", requestOptions);
             const result = await response.json();
             if (result.state_prov && avStates[result.state_prov]) {
                 const avUserLocation = {
@@ -126,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (getAVCookie("av-modal") !== "true") {
         const avModalLocation = await getAVModalLocation();
         buildAVModal(avModalLocation);
-        setAVCookie("av-modal", "true", 7); // Cookie expires in 7 days
+        setAVCookie("av-modal", "true", 365); // Cookie expires in 1 year
     }
 
 });
