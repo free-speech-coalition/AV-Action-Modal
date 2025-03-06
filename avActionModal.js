@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         "North Dakota": { "billLink": "https://www.defendonlineprivacy.com/nd/action.php" },
         "Ohio": { "billLink": "https://www.defendonlineprivacy.com/oh/action.php" },
         "Oregon": { "billLink": "https://www.defendonlineprivacy.com/or/action.php" },
-        "South Dakota": { "billLink": "https://www.defendonlineprivacy.com/sd/action.php" },
         "West Virginia": { "billLink": "https://www.defendonlineprivacy.com/wv/action.php" },
         "Wyoming": { "billLink": "https://www.defendonlineprivacy.com/wy/action.php" }
     };
