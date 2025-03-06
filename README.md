@@ -4,13 +4,13 @@ A modal window that pops up if it detects that a user is located in a state with
 
 ## How To Add It To Your Site
 
-1. Copy this:  
+1. Copy this:
 `<script src="https://assets.freespeechcoalition.com/code/avActionModal.min.js"></script>`
 
 2. Paste it before the `</body>` tag of your website's code.
 
 
-## How It Works (Non-Technical)
+## How It Works
 
 When a user visits your website, the script checks to see whether they have a cookie indicating that they have already seen the pop up. If not, it checks whether they are  in a state with a pending age-verification bill. If they are, it displays a pop up window asking them to oppose the bill:
 
@@ -40,11 +40,3 @@ No. FSC is providing access to this code (including the geolocation service) fre
 
 ### What if I have a problem adding the code or the pop up looks wrong?
 Let Alison know!
-
-
-## How It Works (Slightly Technical)
-On page load, the script checks for the `av-modal` cookie. If it is unset or false, it triggers a request to [ipify.org](https://www.ipify.org/) to determine the user's IP address.
-
-If that request successfully returns an IP address, it triggers a request to [ipgeolocation.io](https://ipgeolocation.io/) using FSC's API key to determine the state/province associated with the user's IP address.
-
-If that request successfully returns a state in the [`avStates`](https://github.com/freespeechadmin/avActionModal/blob/375bf96c788ac443c183676375362a92327aa05c/avActionModal.js#L9) list, it triggers the creation of the HTML for the modal window and attaches it to the `body` of the page.
