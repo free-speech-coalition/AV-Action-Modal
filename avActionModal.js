@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         "Ohio": { "billLink": "https://www.defendonlineprivacy.com/oh/action.php" },
         "Oregon": { "billLink": "https://www.defendonlineprivacy.com/or/action.php" },
         "West Virginia": { "billLink": "https://www.defendonlineprivacy.com/wv/action.php" },
+        "Wisconsin": { "billLink": "https://www.defendonlineprivacy.com/wi/action.php" },
         "Wyoming": { "billLink": "https://www.defendonlineprivacy.com/wy/action.php" }
     };
 

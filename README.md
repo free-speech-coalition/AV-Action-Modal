@@ -27,7 +27,7 @@ Whether or not the user clicks the links, the cookie is set, ensuring that they 
 Politicians' number one priority is reelection, so they care far more about what the voters in their district think than what the porn industry thinks. We were able to defeat Arizona's law in 2024 by mobilizing constituents to pressure the governor into vetoing a bill that the legislature had passed. We think we can do it again this year in more states.
 
 ### Which states will see the pop up?
-Arizona, Hawaii, Illinois, Iowa, Maryland, Minnesota, Missouri, Nevada, New Mexico, New York, North Dakota, Ohio, Oregon, West Virginia, and Wyoming.
+Arizona, Hawaii, Illinois, Iowa, Maryland, Minnesota, Missouri, Nevada, New Mexico, New York, North Dakota, Ohio, Oregon, West Virginia, Wisconsin, and Wyoming.
 
 ### What happens when the user clicks the link to contact their representatives?
 They are taken to a form where they can send a message to their elected officials. (Example: [Illinois](https://www.defendonlineprivacy.com/il/action.php))
