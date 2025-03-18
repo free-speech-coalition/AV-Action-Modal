@@ -1,11 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const avOpenBtn = document.getElementById("openModal");
-    const avStyles = {
-        background: "#10202b",
-        text: "#fff",
-        linkColor: "#fff",
-        buttonColor: "#ff3131"
-    };
     const avStates = {
         "Arizona": { "billLink": "https://www.defendonlineprivacy.com/az/action.php" },
         "Hawaii": { "billLink": "https://www.defendonlineprivacy.com/hi/action.php" },
@@ -71,21 +65,48 @@ document.addEventListener("DOMContentLoaded", async function () {
         const avModal = document.createElement("div");
         avModal.id = 'AVmodal';
         avModal.style.cssText = "display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); font-family: Arial, sans-serif; font-size: 22px; line-height: 24px;";
+        const avStyles = {
+            background: "#10202b",
+            text: "#fff",
+            linkColor: "#fff",
+            buttonColor: "#ff3131",
+            maxWidth: "350px",
+            padding: "26px",
+            closeTop: "10px",
+            closeFontSize: "20px",
+            headlineFontSize: "22px",
+            headlineLineHeight: "24px",
+            displayText: "block",
+            medFont: "22px",
+            smallFont: "18px"
+        };
+        const mediaQuery = window.matchMedia('(max-width: 768px)');
+        if (mediaQuery.matches) {
+            avStyles.maxWidth = "80%";
+            avStyles.padding = "54px 16px 26px 16px";
+            avStyles.closeTop = "30px";
+            avStyles.closeFontSize = "80px";
+            avStyles.headlineFontSize = "32px";
+            avStyles.headlineLineHeight = "34px";
+            avStyles.displayText = "none";
+            avStyles.medFont = "20px";
+            avStyles.smallFont = "16px";
+        }
 
         const avModelContent = `
-            <div style="background: ${avStyles.background}; color: ${avStyles.text}; padding: 26px; max-width: 350px; margin: 10% auto; border-radius: 8px; position: relative; text-align: center;">
-                <p style="font-weight: bold; font-family: Arial, sans-serif; font-size: 22px; line-height: 24px;">Attention ${avLocation.stateName} Residents</p>
-                <p style="font-family: Arial, sans-serif; font-size: 22px; line-height: 24px;">
+            <div style="background: ${avStyles.background}; color: ${avStyles.text}; padding: ${avStyles.padding}; max-width: ${avStyles.maxWidth}; margin: 10% auto; border-radius: 8px; position: relative; text-align: center;">
+                <p style="font-weight: bold; font-family: Arial, sans-serif; font-size: ${avStyles.headlineFontSize}; line-height: ${avStyles.headlineLineHeight};">Attention ${avLocation.stateName} Residents</p>
+                <p style="font-family: Arial, sans-serif; font-size: ${avStyles.medFont}; line-height: 24px;">
                     Legislators in ${avLocation.stateName} are about to pass a law that could force you to upload government ID and scan your face every time you access adult content.
                 </p>
-                <p style="font-family: Arial, sans-serif; font-size: 22px; line-height: 24px;">
+                <p style="font-family: Arial, sans-serif; font-size: 22px; line-height: 24px; display: ${avStyles.displayText}">
                     You have a right to privacy online!<br /> And <u>you</u> can help stop this bill if you act now.
                 </p>
                 <a href="${avLocation.billLink}" target="_blank" style="display: inline-block; text-decoration: none; padding: 20px; border-radius: 16px; background: ${avStyles.buttonColor}; color: ${avStyles.linkColor}; font-weight: bold; font-family: Arial, sans-serif; font-size: 22px; line-height: 24px;" id="avTakeAction">Tell your representatives to oppose this bill NOW!</a>
-                <p style="font-size: 18px; font-family: Arial, sans-serif; line-height: 20px;">
+                <p style="font-size: ${avStyles.smallFont}; font-family: Arial, sans-serif; line-height: 20px;">
                     Not in ${avLocation.stateName}? <a href="https://defendonlineprivacy.com/geolocation.php" style="color: ${avStyles.buttonColor};" target="_blank" id="avGeolocationError">Learn more</a> about why you could be affected by this law.
                 </p>
-                <span id="avClose" style="position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer;">&times;</span>
+                <span id="avClose" style="position: absolute; top: ${avStyles.closeTop}; right: 15px; font-size: ${avStyles.closeFontSize}; cursor: pointer;">&times;</span>
             </div>`;
 
         // build it
