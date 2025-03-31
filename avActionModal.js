@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         "Minnesota": { "billLink": "https://www.defendonlineprivacy.com/mn/action.php" },
         "Missouri": { "billLink": "https://www.defendonlineprivacy.com/mo/action.php" },
         "Nevada": { "billLink": "https://www.defendonlineprivacy.com/nv/action.php" },
-        "New Mexico": { "billLink": "https://www.defendonlineprivacy.com/nm/action.php" },
         "New York": { "billLink": "https://www.defendonlineprivacy.com/ny/action.php" },
         "North Dakota": { "billLink": "https://www.defendonlineprivacy.com/nd/action.php" },
         "Ohio": { "billLink": "https://www.defendonlineprivacy.com/oh/action.php" },
