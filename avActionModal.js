@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const avOpenBtn = document.getElementById("openModal");
     const avStates = {
         "Arizona": { "billLink": "https://www.defendonlineprivacy.com/az/action.php" },
+        "Colorado": { "billLink": "https://www.defendonlineprivacy.com/co/action.php"},
         "Hawaii": { "billLink": "https://www.defendonlineprivacy.com/hi/action.php" },
         "Illinois": { "billLink": "https://www.defendonlineprivacy.com/il/action.php" },
         "Iowa": { "billLink": "https://www.defendonlineprivacy.com/ia/action.php" },

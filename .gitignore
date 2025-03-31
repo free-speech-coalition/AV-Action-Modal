@@ -1,5 +1,8 @@
 # Configuration files
 .env
 
+# Other
+**.min.js
+
 # Junk
 .DS_Store
