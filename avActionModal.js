@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         "Illinois": { "billLink": "https://www.defendonlineprivacy.com/il/action.php" },
         "Iowa": { "billLink": "https://www.defendonlineprivacy.com/ia/action.php" },
         "Maryland": { "billLink": "https://www.defendonlineprivacy.com/md/action.php" },
+        "Michigan": { "billLink": "https://www.defendonlineprivacy.com/mi/action.php" },
         "Minnesota": { "billLink": "https://www.defendonlineprivacy.com/mn/action.php" },
         "Missouri": { "billLink": "https://www.defendonlineprivacy.com/mo/action.php" },
         "Nevada": { "billLink": "https://www.defendonlineprivacy.com/nv/action.php" },
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (result.state_prov && avStates[result.state_prov]) {
                 const avUserLocation = {
                     stateName:  result.state_prov,
-                    billLink: avStates[result.state_prov]["billLink"]
+                    billLink: avStates[result.state_prov]["billLink"] + "?utm_medium=modal&utm_source=" + location.host
                 };
                 return avUserLocation;
             } else {
