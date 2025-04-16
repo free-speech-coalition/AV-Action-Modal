@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     const avOpenBtn = document.getElementById("openModal");
     const avStates = {
         "Arizona": { "billLink": "https://www.defendonlineprivacy.com/az/action.php" },
-        "Colorado": { "billLink": "https://www.defendonlineprivacy.com/co/action.php"},
         "Hawaii": { "billLink": "https://www.defendonlineprivacy.com/hi/action.php" },
         "Illinois": { "billLink": "https://www.defendonlineprivacy.com/il/action.php" },
         "Iowa": { "billLink": "https://www.defendonlineprivacy.com/ia/action.php" },
@@ -10,12 +9,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         "Michigan": { "billLink": "https://www.defendonlineprivacy.com/mi/action.php" },
         "Minnesota": { "billLink": "https://www.defendonlineprivacy.com/mn/action.php" },
         "Missouri": { "billLink": "https://www.defendonlineprivacy.com/mo/action.php" },
-        "Nevada": { "billLink": "https://www.defendonlineprivacy.com/nv/action.php" },
         "New York": { "billLink": "https://www.defendonlineprivacy.com/ny/action.php" },
-        "North Dakota": { "billLink": "https://www.defendonlineprivacy.com/nd/action.php" },
         "Ohio": { "billLink": "https://www.defendonlineprivacy.com/oh/action.php" },
         "Oregon": { "billLink": "https://www.defendonlineprivacy.com/or/action.php" },
-        "West Virginia": { "billLink": "https://www.defendonlineprivacy.com/wv/action.php" },
         "Wisconsin": { "billLink": "https://www.defendonlineprivacy.com/wi/action.php" }
     };
 
