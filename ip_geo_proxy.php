@@ -53,9 +53,11 @@ function get_api_key() {
             return $value;
         }
     }
+    return null;
 }
 
 function get_geolocation($api_key, $ip, $lang = "en", $fields = "state_prov") {
+	$ret = [];
     if (!$api_key) {
         http_response_code(500);
         return json_encode([
@@ -71,7 +73,7 @@ function get_geolocation($api_key, $ip, $lang = "en", $fields = "state_prov") {
     curl_setopt($cURL, CURLOPT_HTTPHEADER, array(
         'Content-Type: application/json',
         'Accept: application/json',
-        'User-Agent: '.$_SERVER['HTTP_USER_AGENT']
+        'User-Agent: '.$_SERVER['HTTP_USER_AGENT'],
     ));
 
     try {
@@ -83,12 +85,14 @@ function get_geolocation($api_key, $ip, $lang = "en", $fields = "state_prov") {
             'error_message' => $e->getMessage(),
         ]);
     }
+    return json_encode($ret);
 }
 
 
 function show_json_response() {
     $remote_ip = false;
-    
+
+	// @todo Update this for security reasons. Never trust HTTP_* headers. 
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $remote_ip = $_SERVER['HTTP_CLIENT_IP'];
     } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -99,27 +103,26 @@ function show_json_response() {
     
     if (!$remote_ip) {
         http_response_code(400);
-        echo json_encode([
+        return json_encode([
             'error_code' => 4001,
             'error_message' => ERROR_MISSING_IP,
         ]);
-        return;
     }
     
     if (filter_var($remote_ip, FILTER_VALIDATE_IP) == false) {
         http_response_code(400);
-        echo json_encode([
+        return json_encode([
             'error_code' => 4002,
             'error_message' => ERROR_INVALID_IP,
         ]);
-        return;
     }
     
     $json_response = get_geolocation(API_KEY, $remote_ip);
-    echo $json_response;
+    return $json_response;
 }
 
-show_json_response();
+print show_json_response();
+
 
 
 
