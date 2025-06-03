@@ -1,4 +1,7 @@
 <?php
+# Root dir where this script lives.
+define('ROOT_DIR', getcwd());
+
 # Start off with an hour since this is not easily undone once sent to a browser.
 define('HSTS_PRELOAD_MAX_AGE', 3600);
 
@@ -7,6 +10,12 @@ define('ERROR_MISSING_API_KEY', '`API_KEY` is required');
 define('ERROR_MISSING_IP','`ip_address` is required');
 define('API_KEY_NAME', 'IP_GEO_KEY');
 define('API_KEY', get_api_key());
+
+# The actual file can/should come from the ip_geo_config_example.php.
+$conf_file = ROOT_DIR . '/ip_geo_config.php';
+if (file_exists($conf_file)) {
+  require_once $conf_file;
+}
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -56,6 +65,7 @@ function get_api_key() {
     return null;
 }
 
+
 function get_geolocation($api_key, $ip, $lang = "en", $fields = "state_prov") {
 	$ret = [];
     if (!$api_key) {
@@ -92,13 +102,16 @@ function get_geolocation($api_key, $ip, $lang = "en", $fields = "state_prov") {
 function show_json_response() {
     $remote_ip = false;
 
-	// @todo Update this for security reasons. Never trust HTTP_* headers. 
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        $remote_ip = $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        $remote_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } else {
+    if (defined('REMOTE_IP_PREPROCESSED') && !empty(REMOTE_IP_PREPROCESSED)) {
         $remote_ip = $_SERVER['REMOTE_ADDR'];
+    } else {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $remote_ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $remote_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $remote_ip = $_SERVER['REMOTE_ADDR'];
+        }
     }
     
     if (!$remote_ip) {
@@ -109,7 +122,7 @@ function show_json_response() {
         ]);
     }
     
-    if (filter_var($remote_ip, FILTER_VALIDATE_IP) == false) {
+    if (filter_var($remote_ip, FILTER_VALIDATE_IP) === false) {
         http_response_code(400);
         return json_encode([
             'error_code' => 4002,
@@ -120,6 +133,7 @@ function show_json_response() {
     $json_response = get_geolocation(API_KEY, $remote_ip);
     return $json_response;
 }
+
 
 print show_json_response();
 
