@@ -3,16 +3,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     const avStates = {
         // "Arizona": { "billLink": "https://www.defendonlineprivacy.com/az/action.php" },
         // "Hawaii": { "billLink": "https://www.defendonlineprivacy.com/hi/action.php" },
-        "Illinois": { "billLink": "https://www.defendonlineprivacy.com/il/action.php" },
-        "Iowa": { "billLink": "https://www.defendonlineprivacy.com/ia/action.php" },
+        // "Illinois": { "billLink": "https://www.defendonlineprivacy.com/il/action.php" },
+        // "Iowa": { "billLink": "https://www.defendonlineprivacy.com/ia/action.php" },
         // "Maryland": { "billLink": "https://www.defendonlineprivacy.com/md/action.php" },
         // "Michigan": { "billLink": "https://www.defendonlineprivacy.com/mi/action.php" },
-        "Minnesota": { "billLink": "https://www.defendonlineprivacy.com/mn/action.php" },
-        "Missouri": { "billLink": "https://www.defendonlineprivacy.com/mo/action.php" },
-        "New York": { "billLink": "https://www.defendonlineprivacy.com/ny/action.php" },
-        "Ohio": { "billLink": "https://www.defendonlineprivacy.com/oh/action.php" },
+        // "Minnesota": { "billLink": "https://www.defendonlineprivacy.com/mn/action.php" },
+        // "Missouri": { "billLink": "https://www.defendonlineprivacy.com/mo/action.php" },
+        // "New York": { "billLink": "https://www.defendonlineprivacy.com/ny/action.php" },
+        // "Ohio": { "billLink": "https://www.defendonlineprivacy.com/oh/action.php" },
         // "Oregon": { "billLink": "https://www.defendonlineprivacy.com/or/action.php" },
-        "Wisconsin": { "billLink": "https://www.defendonlineprivacy.com/wi/action.php" }
+        // "Wisconsin": { "billLink": "https://www.defendonlineprivacy.com/wi/action.php" }
     };
 
 
@@ -131,10 +131,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Pop modal (or not)
-    if (getAVCookie("av-modal") !== "true") {
-        const avModalLocation = await getAVModalLocation();
-        buildAVModal(avModalLocation);
-        setAVCookie("av-modal", "true", 365); // Cookie expires in 1 year
-    }
+    // if (getAVCookie("av-modal") !== "true") {
+    //     const avModalLocation = await getAVModalLocation();
+    //     buildAVModal(avModalLocation);
+    //     setAVCookie("av-modal", "true", 365); // Cookie expires in 1 year
+    // }
 
 });
